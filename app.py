@@ -30,7 +30,7 @@ def predict_datapoint():
             writing_score=float(request.form.get('reading_score'))
 
         )
-        pred_df=data.get_data_as_data_frame()
+        pred_df=data.get_data_as_df()
         print(pred_df)
         print("Before Prediction")
 
@@ -38,6 +38,7 @@ def predict_datapoint():
         print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
         print("after Prediction")
+        print("Calculated Result:", results)
         return render_template('home.html',results=results[0])
     
 
